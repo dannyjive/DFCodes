@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
     <title>Dan Finley - Developer & Designer</title>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <canvas class="wave-pattern" id="waveCanvas"></canvas>
+        <!-- <canvas class="wave-pattern" id="waveCanvas"></canvas> -->
         <nav>
             <ul>
-                <li><a href="#home">🏠 Home</a></li>
-                <li><a href="#about">👤 About</a></li>
-                <li><a href="#projects">💼 Projects</a></li>
-                <li><a href="#blog">📝 Blog</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#techstack">TechStack</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
         <div class="hero-content">
-            <p class="hero-title">Dan Finley</p>
-            <h1>Developer <span>+</span> Designer</h1>
+            <div id="left-side-hero">
+                <p class="hero-title">Dan Finley</p>
+                <h1><span id="developer">Developer</span></h1>
+            </div>
+            <span id="slash">/</span>
+            <div id="right-side-hero">
+                <h1><span id="designer"> Designer</span></h1>
+            </div>
         </div>
     </section>
 
