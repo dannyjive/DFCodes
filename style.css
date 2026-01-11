@@ -22,7 +22,7 @@ nav {
   position: fixed;
   z-index: 10;
   top: 20px;
-  left: 20px;
+  left: 40px;
   z-index: 1000;
   font-family: "Advent pro", sans-serif;
   font-weight: 800;
@@ -67,7 +67,6 @@ nav a:hover {
   align-items: center;
   margin-top: 180px;
   margin-bottom: 120px;
- 
 }
 
 .hero-name {
@@ -78,7 +77,7 @@ nav a:hover {
   text-align: right;
 }
 
-#left-side-hero{
+#left-side-hero {
   margin-right: 30px;
 }
 
@@ -86,22 +85,47 @@ nav a:hover {
   font-size: 64px;
 }
 
-
 #hero-designer {
   position: relative;
   top: 8px;
   font-family: "Advent Pro", sans-serif;
   font-size: 55px;
   font-weight: 600;
-  
 }
 
 #hero-slash {
   position: absolute;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 15em;
-  margin-left: 150px;
+  margin-left: 170px;
+  margin-top: 30px;
   color: #121c26;
   z-index: -10;
-  
+}
+
+/* --- PROJECT HIGHLIGHTS --- */
+
+#project-highlights {
+  font-family: "Advent Pro", sans-serif;
+  text-align: center;
+}
+
+/* --- CARDS --- */
+
+.project-title {
+  font-family: "Advent Pro", sans-serif;
+}
+
+.card-right {
+  background: #2a4257;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
+  border-radius: 12px;
+  padding: 24px;
+  /* display: flex;
+  flex-direction: column;
+  gap: 12px; */
+  max-width: 1100px;
+  height: 350px;
+  width: calc(50vw + 550px - 24px);
 }
