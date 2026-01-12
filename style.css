@@ -16,15 +16,27 @@ body {
   background: linear-gradient(to right, #121c26 10%, #22364a 60%, #275075 100%);
 }
 
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
 /* --- NAV --- */
 
-nav {
+.site-nav {
   position: fixed;
-  z-index: 10;
   top: 20px;
-  left: 40px;
-  z-index: 1000;
-  font-family: "Advent pro", sans-serif;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.site-nav__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 40px;
+  font-family: "Advent Pro", sans-serif;
   font-weight: 800;
 }
 
@@ -66,7 +78,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   margin-top: 180px;
-  margin-bottom: 120px;
+  margin-bottom: 220px;
 }
 
 .hero-name {
@@ -108,24 +120,74 @@ nav a:hover {
 #project-highlights {
   font-family: "Advent Pro", sans-serif;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 /* --- CARDS --- */
 
-.project-title {
-  font-family: "Advent Pro", sans-serif;
+.card-wrapper-right {
+  display: flex;
+  justify-content: end;
 }
 
 .card-right {
   background: #2a4257;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   transition: 0.3s;
-  border-radius: 12px;
+  border-radius: 16px 0 0 16px;
+  width: 1000px;
+  height: 375px;
+  background-image: url("./img/DFPhotoIMG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.card-right-inner {
+  border-radius: 16px 0 0 16px;
   padding: 24px;
-  /* display: flex;
+  width: 1000px;
+  height: 375px;
+  background-image: linear-gradient(to right, #2a4257 25%, transparent 50%); 
+  
+}
+
+.card-data {
+  display: flex;
+  margin-left: 10px;
   flex-direction: column;
-  gap: 12px; */
-  max-width: 1100px;
-  height: 350px;
-  width: calc(50vw + 550px - 24px);
+  justify-content: space-between;
+  height: 330px;
+}
+
+.project-title {
+  font-family: "Advent Pro", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.project-description {
+  width: 300px;
+  font-size: 1em;
+}
+
+/* -- BUTTONS -- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 35px;
+  border-radius: 8px;
+  border: none;
+  background-color: #545b83;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 800;
+  margin-top: 10px;
+  
+}
+
+.btn a{
+  text-decoration: none;
+  color: white;
 }
