@@ -1,3 +1,30 @@
+        <!-- Modal -->
+ 
+      document.addEventListener("DOMContentLoaded", function () {
+        const modalImage = document.getElementById("modalImage");
+        const modalTitle = document.getElementById("infoModalLabel");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalLinks = document.getElementById("modalLinks");
+
+        document.querySelectorAll(".open-modal").forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function () {
+            modalImage.src = this.dataset.img;
+            modalImage.alt = this.alt;
+            modalTitle.textContent = this.dataset.title;
+            modalDescription.textContent = this.dataset.description;
+
+            // Generate links
+            const links = JSON.parse(this.dataset.links);
+            modalLinks.innerHTML = links
+              .map(
+                (link) =>
+                  `<a href="${link.url}" class="btn btn-primary m-1" target="_blank">${link.text}</a>`
+              )
+              .join("");
+          });
+        });
+      });
+     
      //Filter Buttons
       document.addEventListener("DOMContentLoaded", function () {
         const filterButtons = document.querySelectorAll(".filter-btn");
@@ -9,11 +36,11 @@
 
             // Change active button styling
             filterButtons.forEach((btn) => {
-              btn.classList.remove("btn-active");
-              btn.classList.add("btn-inactive");
+              btn.classList.remove("active");
+              btn.classList.add("inactive");
             });
 
-            this.classList.add("btn-active");
+            this.classList.add("active");
 
             // Show/Hide items based on filter
             filterItems.forEach((item) => {
