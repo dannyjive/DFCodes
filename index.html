@@ -19,7 +19,7 @@
         <div class="site-nav__inner">
           <nav>
             <ul>
-              <li><a href="#hero">Home</a></li>
+              <li><a href="#">Home</a></li>
               <li><a href="#project-section">Projects</a></li>
               <li><a href="#technologies">TechStack</a></li>
               <li><a href="#about">About</a></li>
@@ -49,9 +49,9 @@
 
         <!-- CARD RIGHT -->
         <div class="card-wrapper-right">
-          <div class="card-right">
+          <div class="card-right" id="card-one">
             <div class="card-right-inner">
-              <div class="card-data">
+              <div class="card-data-right">
                 <div class="upper-card">
                   <h3 class="project-title">Photography Portfolio</h3>
                   <p class="project-description">
@@ -65,15 +65,15 @@
                 <div class="lower-card">
                   <p>#react #javascript #css #html</p>
                   <div>
-                    <button class="btn">
+                    
                       <a
                         href="https://www.dan-finley.com/photo"
-                        target="_blank"
+                        target="_blank" class="btn"
                       >
                         Live Site</a
                       >
-                    </button>
-                    <button class="btn"><a href="#">GitHub</a></button>
+                    
+                    <a href="#" target="_blank" class="btn">GitHub</a>
                   </div>
                 </div>
               </div>
@@ -82,22 +82,54 @@
         </div>
 
         <!-- CARD LEFT -->
-        <div class="card-left">
-          <h3 class="project-title">Project Title - Card Left</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            tristique quis nunc in venenatis. Sed venenatis maximus velit, vitae
-            auctor sem vulputate nec. Praesent id porta mauris, vitae gravida
-            felis. Pellentesque in ligula consequat, aliquet dui a, imperdiet
-            turpis. Suspendisse vel nunc faucibus, fringilla orci ut, lacinia
-            ligula.
-          </p>
-          <p>#react #javascript #css #html</p>
-          <button class="btn">Live Site</button>
-          <button class="btn">GitHub</button>
+         
+ <div class="card-wrapper-left">
+          <div class="card-left" id="card-two">
+            <div class="card-left-inner">
+              <div class="card-data-left">
+                <div class="upper-card">
+                  <h3 class="project-title">Shopping Cart</h3>
+                  <p class="project-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                    tristique quis nunc in venenatis. Sed venenatis maximus
+                    velit, vitae auctor sem vulputate nec. Praesent id porta
+                    mauris, vitae gravida felis. Pellentesque in ligula
+                    consequat, aliquet dui a, imperdiet turpis.
+                  </p>
+                </div>
+                <div class="lower-card">
+                  <p>#react #javascript #css #html</p>
+                  <div>
+                            <a
+                        href="https://www.dan-finley.com/photo"
+                        target="_blank" class="btn"
+                      >
+                        Live Site</a
+                      >
+                    
+                    <a href="#" target="_blank" class="btn">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- OTHER PROJECTS -->
         <div id="other-projects">
           <h2 class="section-title">Other Projects</h2>
+          <div id="filter-menu">
+            <ul>
+              <li class="active" data-filter="all">#all</li>
+              <li data-filter="wordpress">#wordpress</li>
+              <li data-filter="react">#react</li>
+              <li data-filter="javascript">#javascript</li>
+              <li data-filter="game">#game</li>
+              <li data-filter="api">#api</li>
+              <li data-filter="sass">#sass</li>
+              <li data-filter="bootstrap">#bootstrap</li>
+            </ul>
+          </div>
           <div class="project-grid">
             <div class="project-item"><img src="#" alt="#" /></div>
             <div class="project-item"><img src="#" alt="#" /></div>
