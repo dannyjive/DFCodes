@@ -46,7 +46,7 @@ nav ul {
 }
 
 nav a {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s;
@@ -87,7 +87,7 @@ nav a:hover {
   font-family: "Advent Pro", sans-serif;
   font-weight: 600;
   font-size: 1.5em;
-  color: white;
+  color: white !important;
   text-align: right;
 }
 
@@ -119,7 +119,10 @@ nav a:hover {
 
 /* --- SECTION HEADERS --- */
 
-#project-highlights, #other-projects, #technologies, #about {
+#project-highlights,
+#other-projects,
+#technologies,
+#about {
   font-family: "Advent Pro", sans-serif;
   text-align: center;
   margin-bottom: 30px;
@@ -178,7 +181,7 @@ nav a:hover {
   justify-content: flex-end;
   border-radius: 0 16px 16px 0;
   padding: 24px;
-  background-image: linear-gradient(to left, #2a4257 25%, transparent 50%); 
+  background-image: linear-gradient(to left, #2a4257 25%, transparent 50%);
 }
 
 .card-data-right {
@@ -238,7 +241,7 @@ nav a:hover {
   font-weight: 800;
   margin-top: 10px;
   text-decoration: none;
-  color: white;
+  color: white !important;
 }
 
 .btn:hover {
@@ -250,12 +253,26 @@ nav a:hover {
   outline-offset: 3px;
 }
 
-
 /* --- Filter Menu --- */
+/*
+#filter-menu li{
+  text-decoration: none;
+  }
+  
+*/
+
+/* #filter-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+} */
 
 #filter-menu ul {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -267,14 +284,31 @@ nav a:hover {
   padding: 5px 30px;
 }
 
-#filter-menu li{
-  text-decoration: none;
-
+.filter-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
 }
 
-.active{
-  background-color: #27A0A6;
+.active {
+  background-color: #27a0a6;
   border-radius: 20px;
   padding: 5px 15px;
+}
 
+/* --- Other Projects --- */
+
+.project-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.push-intr-cards-down {
+  max-width: 1000px;
+  /* display: flex;
+  justify-content: center; */
 }
