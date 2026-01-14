@@ -74,7 +74,7 @@ nav a:hover {
 
 /* --- HERO SECTION --- */
 
-.hero-content {
+#hero{
   position: relative;
   display: flex;
   justify-content: center;
@@ -82,39 +82,57 @@ nav a:hover {
   margin-top: 180px;
   margin-bottom: 220px;
 }
-
-.hero-name {
-  font-family: "Advent Pro", sans-serif;
+.name {
+  position: absolute;
+  font-family: "Advent Pro";
+  font-size: 2rem;
+  margin-left: 320px;
+  top: -10px;
   font-weight: 600;
-  font-size: 1.5em;
-  color: white !important;
-  text-align: right;
+  z-index: 2;
+  color: white;
+  max-width: 50%;
 }
 
-#left-side-hero {
-  margin-right: 30px;
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  z-index: 2;
 }
 
-#hero-developer {
-  font-size: 64px;
+.title {
+  font-size: 5rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+.designer {
+  font-family: "Advent Pro";
+  font-weight: 600;
+  color: white;
 }
 
-#hero-designer {
-  position: relative;
-  top: 8px;
-  font-family: "Advent Pro", sans-serif;
-  font-size: 55px;
+.developer {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
   font-weight: 600;
 }
 
-#hero-slash {
+/* The Slash / Divider */
+.slash {
   position: absolute;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 15em;
-  margin-left: 170px;
+  margin-left: 370px;
   margin-top: 30px;
   color: #121c26;
   z-index: -10;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* --- SECTION HEADERS --- */
