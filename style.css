@@ -11,7 +11,6 @@ html {
 
 body {
   font-family: "Courier Prime", serif;
-  color: #fff;
   overflow-x: hidden;
   background: linear-gradient(to right, #121c26 10%, #22364a 60%, #275075 100%);
 }
@@ -22,14 +21,21 @@ body {
   padding-inline: 24px;
 }
 
+p {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: normal;
+}
+
 /* --- NAV --- */
 
 .site-nav {
   position: fixed;
   top: 20px;
   left: 0;
-  width: 100%;
+  width: fit-content;
   z-index: 10;
+
 }
 
 .site-nav__inner {
@@ -37,18 +43,22 @@ body {
   margin: 0 auto;
   padding-left: 40px;
   font-family: "Advent Pro", sans-serif;
-  font-weight: 800;
-}
+  font-weight: 600;
 
+}
+nav{
+  width: fit-content;
+}
 nav ul {
   list-style: none;
   gap: 20px;
+
 }
 
 nav a {
-  color: #fff !important;
+  color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1em;
   transition: color 0.3s;
   position: relative;
   padding-left: 14px;
@@ -74,7 +84,7 @@ nav a:hover {
 
 /* --- HERO SECTION --- */
 
-#hero{
+#hero {
   position: relative;
   display: flex;
   justify-content: center;
@@ -86,7 +96,7 @@ nav a:hover {
   position: absolute;
   font-family: "Advent Pro";
   font-size: 2rem;
-  margin-left: 320px;
+  margin-left: 348px;
   top: -10px;
   font-weight: 600;
   z-index: 2;
@@ -101,21 +111,18 @@ nav a:hover {
   z-index: 2;
 }
 
-.title {
-  font-size: 5rem;
-  letter-spacing: 2px;
-  font-weight: 400;
-}
 .designer {
+  font-size: 5rem;
   font-family: "Advent Pro";
   font-weight: 600;
   color: white;
 }
 
 .developer {
+  font-size: 5.5rem;
   font-family: "Courier New", Courier, monospace;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 /* The Slash / Divider */
@@ -123,7 +130,7 @@ nav a:hover {
   position: absolute;
   font-family: "Rubik Mono One", sans-serif;
   font-size: 15em;
-  margin-left: 370px;
+  margin-left: 390px;
   margin-top: 30px;
   color: #121c26;
   z-index: -10;
@@ -131,8 +138,13 @@ nav a:hover {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* --- SECTION HEADERS --- */
@@ -144,6 +156,7 @@ nav a:hover {
   font-family: "Advent Pro", sans-serif;
   text-align: center;
   margin-bottom: 30px;
+  color: white;
 }
 
 /* --- PROJECT HIGHLIGHTS CARDS --- */
@@ -223,7 +236,9 @@ nav a:hover {
 .project-title {
   font-family: "Advent Pro", sans-serif;
   font-size: 1.5em;
+  font-weight: 600;
   margin-bottom: 20px;
+  color: white;
 }
 
 .project-description {
@@ -247,7 +262,7 @@ nav a:hover {
 
 /* --- BUTTONS --- */
 
-.btn {
+a.btn {
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -259,33 +274,19 @@ nav a:hover {
   font-weight: 800;
   margin-top: 10px;
   text-decoration: none;
-  color: white !important;
+  color: white;
 }
 
-.btn:hover {
+a.btn:hover{
   background-color: #5f6794;
 }
 
-.btn:focus-visible {
+a.btn:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 
 /* --- Filter Menu --- */
-/*
-#filter-menu li{
-  text-decoration: none;
-  }
-  
-*/
-
-/* #filter-menu {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-} */
 
 #filter-menu ul {
   font-family: "Courier New", Courier, monospace;
@@ -327,6 +328,35 @@ nav a:hover {
 
 .push-intr-cards-down {
   max-width: 1000px;
-  /* display: flex;
-  justify-content: center; */
+}
+
+/* --- ABOUT SECTION --- */
+
+.about-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+
+.about-image{
+  width: 400px;
+  padding: 20px;
+}
+
+.custom-color{
+  background-color: #2A4257 !important;
+}
+
+.contact-info p {
+  font-weight: 600;
+}
+
+.card-body a{
+  text-decoration: underline;
+  color: white;
+  font-weight: 100;
+}
+
+.contact-info a:hover{
+  color: rgba(255, 255, 255, 0.8);
 }

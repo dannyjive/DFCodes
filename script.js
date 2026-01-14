@@ -1,4 +1,4 @@
-        <!-- Modal -->
+      // --- MODAL ---
  
       document.addEventListener("DOMContentLoaded", function () {
         const modalImage = document.getElementById("modalImage");
