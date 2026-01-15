@@ -12,7 +12,7 @@ html {
 body {
   font-family: "Courier Prime", serif;
   overflow-x: hidden;
-  background: linear-gradient(to right, #121c26 10%, #22364a 60%, #275075 100%);
+  background: linear-gradient(to right, #080c11 10%, #121c26 60%, #22364a 80%, #275075 100%);
 }
 
 .page {
@@ -23,7 +23,7 @@ body {
 
 p {
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier Prime", Courier, monospace;
   line-height: normal;
 }
 
@@ -126,9 +126,10 @@ nav ul {
 
 .developer {
   font-size: 5.5rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier Prime", Courier, monospace;
   color: white;
-  font-weight: bold;
+  font-weight: 400;
+
 }
 
 /* The Slash / Divider */
@@ -140,18 +141,10 @@ nav ul {
   margin-top: 30px;
   color: #121c26;
   z-index: -10;
-  animation: float 6s ease-in-out infinite;
+  
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
+
 
 /* --- SECTION HEADERS --- */
 
@@ -522,3 +515,4 @@ footer {
 .footer-wrapper {
   text-align: center;
 }
+

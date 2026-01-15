@@ -1,0 +1,266 @@
+<!-- // Good version of wave -->
+<!-- Abandoned because it was too processor intensive. Fans went into overdrive. Not great for such a simple website but might be useful in the future. All controls are in the JavaScript variables.-->
+
+<div id="wave-stage"></div>
+
+<style>
+  /* BACKGROUND WAVE SVG */
+
+#wave-stage { 
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  width: 200%; 
+  height: 1400px; 
+  z-index: -1000; 
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+  .wave-svg { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0; 
+  }
+
+  .wave-path { 
+    fill: none; 
+    stroke: #00f2ff; 
+    stroke-width: 2; 
+    stroke-linecap: round; 
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.4)); 
+  }
+</style>
+
+
+<script>
+const container = document.getElementById('wave-stage');
+
+
+// --- ADJUST YOUR GLOBAL SETTINGS HERE ---
+
+const rotationDegrees = 90; // Set rotation here (e.g., 45, 90, -10)
+
+const waveCount = 12;
+
+const delayStep = 0.05;
+
+const verticalSpacing = 35; //gap between lines
+
+const speed = "15s"; //speed of fluctuations
+
+const yBase = 450; //Where it sits vertically on page
+
+const targetPoint = yBase - 150; // Focal point for the crossover
+
+const boostFactor = 60; // Increase this for deeper crossing
+
+
+const arcCount = 2; // Adjust how many arcs/waves appear (1, 2, 3, etc.)
+
+// -----------------------------------------
+
+
+// Apply the rotation and centering
+
+container.style.transform = `translate(-50%, -50%) rotate(${rotationDegrees}deg)`;
+
+
+let finalHTML = '';
+
+
+for (let i = 0; i < waveCount; i++) {
+
+  const center = (waveCount - 1) / 2;
+
+  const distanceLinesFromCenter = Math.abs(i - center);
+
+ 
+
+  // Using your requested opacity logic
+
+  const opacity = 1 - (distanceLinesFromCenter / center) * 0.9;
+
+ 
+
+  const delay = i * -delayStep;
+
+  const y = yBase + (i * verticalSpacing);
+
+
+  // Leapfrog math to ensure they swap positions
+
+  const individualDepth = Math.abs(y - targetPoint) + (i * boostFactor);
+
+
+  // Helper to generate multi-arc paths based on arcCount
+
+  const segmentWidth = 1200 / arcCount;
+
+  const getPath = (direction) => {
+
+    let pathData = `M0 ${y}`;
+
+    for (let j = 0; j < arcCount; j++) {
+
+      const xEnd = (j + 1) * segmentWidth;
+
+      const xMid = xEnd - (segmentWidth / 2);
+
+      // Flips direction for each consecutive arc to create a wave
+
+      const flip = (j % 2 === 0) ? direction : -direction;
+
+      pathData += ` Q ${xMid} ${y + (individualDepth * flip)} ${xEnd} ${y}`;
+
+    }
+
+    return pathData;
+
+  };
+
+
+  const pathA = getPath(1);
+
+  const pathB = getPath(-1);
+
+
+  finalHTML += `
+
+    <svg class="wave-svg" viewBox="0 0 1200 1400" preserveAspectRatio="none">
+
+      <path class="wave-path" style="opacity: ${opacity};" d="${pathA}">
+
+        <animate attributeName="d" dur="${speed}" begin="${delay}s" repeatCount="indefinite"
+
+          values="${pathA}; ${pathB}; ${pathA}" />
+
+      </path>
+
+    </svg>
+
+  `;
+
+}
+
+container.innerHTML = finalHTML; 
+
+
+
+// // Version of wave
+
+
+// const container = document.getElementById('wave-stage');
+
+
+// // --- ADJUST YOUR GLOBAL SETTINGS HERE ---
+
+// const rotationDegrees = 25; // Set rotation here (e.g., 45, 90, -10)
+
+// const waveCount = 12;
+
+// const delayStep = 0.15;
+
+// const verticalSpacing = 55; //gap between lines
+
+// const speed = "60s"; //speed of fluctuations
+
+// const yBase = 400; //Where it sits vertically on page
+
+// const targetPoint = yBase - 150; // Focal point for the crossover
+
+// const boostFactor = 90; // Increase this for deeper crossing
+
+
+// const arcCount = 1.8; // Adjust how many arcs/waves appear (1, 2, 3, etc.)
+
+// // -----------------------------------------
+
+
+// // Apply the rotation and centering
+
+// container.style.transform = `translate(-50%, -50%) rotate(${rotationDegrees}deg)`;
+
+
+// let finalHTML = '';
+
+
+// for (let i = 0; i < waveCount; i++) {
+
+//   const center = (waveCount - 1) / 2;
+
+//   const distanceLinesFromCenter = Math.abs(i - center);
+
+ 
+
+//   // Using your requested opacity logic
+
+//   const opacity = 1 - (distanceLinesFromCenter / center) * 0.9;
+
+ 
+
+//   const delay = i * -delayStep;
+
+//   const y = yBase + (i * verticalSpacing);
+
+
+//   // Leapfrog math to ensure they swap positions
+
+//   const individualDepth = Math.abs(y - targetPoint) + (i * boostFactor);
+
+
+//   // Helper to generate multi-arc paths based on arcCount
+
+//   const segmentWidth = 1200 / arcCount;
+
+//   const getPath = (direction) => {
+
+//     let pathData = `M0 ${y}`;
+
+//     for (let j = 0; j < arcCount; j++) {
+
+//       const xEnd = (j + 1) * segmentWidth;
+
+//       const xMid = xEnd - (segmentWidth / 2);
+
+//       // Flips direction for each consecutive arc to create a wave
+
+//       const flip = (j % 2 === 0) ? direction : -direction;
+
+//       pathData += ` Q ${xMid} ${y + (individualDepth * flip)} ${xEnd} ${y}`;
+
+//     }
+
+//     return pathData;
+
+//   };
+
+
+//   const pathA = getPath(1);
+
+//   const pathB = getPath(-1);
+
+
+//   finalHTML += `
+
+//     <svg class="wave-svg" viewBox="0 0 1200 1400" preserveAspectRatio="none">
+
+//       <path class="wave-path" style="opacity: ${opacity};" d="${pathA}">
+
+//         <animate attributeName="d" dur="${speed}" begin="${delay}s" repeatCount="indefinite"
+
+//           values="${pathA}; ${pathB}; ${pathA}" />
+
+//       </path>
+
+//     </svg>
+
+//   `;
+
+// }
+
+// container.innerHTML = finalHTML; 
+
+</script>
