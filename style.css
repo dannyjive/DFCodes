@@ -12,7 +12,25 @@ html {
 body {
   font-family: "Courier Prime", serif;
   overflow-x: hidden;
-  background: linear-gradient(to right, #080c11 10%, #121c26 60%, #22364a 80%, #275075 100%);
+  background: linear-gradient(
+    to right,
+    #080c11 10%,
+    #121c26 60%,
+    #22364a 80%,
+    #275075 100%
+  );
+
+}
+
+.bg-layer {
+position: absolute;
+  inset: 0;
+  z-index: -11;
+
+  background-image: url("/img/BgWave01.png");
+  background-repeat: no-repeat;
+  background-position: center 180%;
+  background-size: 2560px auto;
 }
 
 .page {
@@ -129,7 +147,6 @@ nav ul {
   font-family: "Courier Prime", Courier, monospace;
   color: white;
   font-weight: 400;
-
 }
 
 /* The Slash / Divider */
@@ -141,10 +158,7 @@ nav ul {
   margin-top: 30px;
   color: #121c26;
   z-index: -10;
-  
 }
-
-
 
 /* --- SECTION HEADERS --- */
 
@@ -351,8 +365,6 @@ a.btn:focus-visible {
   max-width: 1000px;
 }
 
-
-
 .card {
   background-color: #ececec !important;
   --bs-card-border-width: 0px !important;
@@ -515,4 +527,3 @@ footer {
 .footer-wrapper {
   text-align: center;
 }
-
