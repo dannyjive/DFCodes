@@ -279,6 +279,7 @@ a.btn {
 
 a.btn:hover{
   background-color: #5f6794;
+  color: white;
 }
 
 a.btn:focus-visible {
@@ -313,6 +314,10 @@ a.btn:focus-visible {
   position: relative;
 }
 
+.filter-item {
+  flex-shrink: 0;
+}
+
 .active {
   background-color: #27a0a6;
   border-radius: 20px;
@@ -326,8 +331,22 @@ a.btn:focus-visible {
   justify-content: center;
 }
 
+.project-grid .row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .push-intr-cards-down {
   max-width: 1000px;
+}
+
+.project-grid-wrapper{
+  margin-bottom: 80px;
+}
+
+#modalDescription, #infoModalLabel{
+  color: #2a4257;
 }
 
 /* --- ABOUT SECTION --- */
@@ -359,4 +378,28 @@ a.btn:focus-visible {
 
 .contact-info a:hover{
   color: rgba(255, 255, 255, 0.8);
+}
+
+.row h6{
+  color: white;
+}
+
+.heatmap-wrapper{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  min-height: 100px;
+  width: 100%;
+}
+
+.footer-wrapper {
+  text-align: center;
 }
