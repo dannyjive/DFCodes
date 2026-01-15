@@ -12,15 +12,20 @@
       rel="stylesheet"
     />
 
-    <!-- Style Sheet -->
-    <link rel="stylesheet" href="style.css" />
-
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       crossorigin="anonymous"
     />
+    
+    <!-- GitHub Heatmap -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+    />
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css" />
 
     <title>Dan Finley Codes</title>
   </head>
@@ -32,10 +37,16 @@
         <div class="site-nav__inner">
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#project-section">Project Highlights</a></li>
-              <li><a href="#other-projects">Other Projects</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a class="navi-link" href="#hero">Home</a></li>
+              <li>
+                <a class="navi-link" href="#project-highlights"
+                  >Project Highlights</a
+                >
+              </li>
+              <li>
+                <a class="navi-link" href="#other-projects">Other Projects</a>
+              </li>
+              <li><a class="navi-link" href="#about">About</a></li>
             </ul>
           </nav>
         </div>
@@ -54,8 +65,8 @@
       </section>
 
       <!-- **PROJECT HIGHLIGHTS -->
-      <section id="project-section">
-        <h2 id="project-highlights">Project Highlights</h2>
+      <section id="project-highlights">
+        <h2 id="project-highlights-title">Project Highlights</h2>
 
         <!-- **CARD RIGHT -->
         <div class="card-wrapper-right">
@@ -68,7 +79,8 @@
                     A responsive photo portfolio built with React,
                     React-Bootstrap, Masonry layout, and React Context. Designed
                     to showcase photography in a clean, modern grid with global
-                    state management and smooth responsiveness across devices. This site was designed and coded by Dan.
+                    state management and smooth responsiveness across devices.
+                    This site was designed and coded by Dan.
                   </p>
                 </div>
                 <div class="lower-card">
@@ -80,328 +92,292 @@
                       class="btn"
                       >Live Site</a
                     >
-                    <a href="#" target="_blank" class="btn">GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- **CARD LEFT -->
-        <div class="card-wrapper-left">
-          <div class="card-left" id="card-two">
-            <div class="card-left-inner">
-              <div class="card-data-left">
-                <div class="upper-card">
-                  <h3 class="project-title">Shopping Cart</h3>
-                  <p class="project-description">
-                    A fun shopping cart built with React, featuring Pokémon
-                    cards! This project includes React state management, props,
-                    redux and component composition. This site was coded and designed by Dan and Team Droplet.
-                  </p>
-                </div>
-                <div class="lower-card project-description">
-                  <p>#html #css #javascript #bootstrap #react #redux</p>
-                  <div>
                     <a
-                      href="https://www.dan-finley.com/photo"
+                      href="https://github.com/dannyjive/photoportfolio"
                       target="_blank"
                       class="btn"
-                      >Live Site</a
+                      >GitHub</a
                     >
-
-                    <a href="#" target="_blank" class="btn">GitHub</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- **OTHER PROJECTS -->
-        <div id="other-projects">
+      <!-- **CARD LEFT -->
+      <div class="card-wrapper-left">
+        <div class="card-left" id="card-two">
+          <div class="card-left-inner">
+            <div class="card-data-left">
+              <div class="upper-card">
+                <h3 class="project-title">Shopping Cart</h3>
+                <p class="project-description">
+                  A fun shopping cart built with React, featuring Pokémon cards!
+                  This project includes React state management, props, redux and
+                  component composition. This site was coded and designed by Dan
+                  and Team Droplet.
+                </p>
+              </div>
+              <div class="lower-card project-description">
+                <p>#html #css #javascript #bootstrap #react #redux</p>
+                <div>
+                  <a href="#" target="_blank" class="btn">Live Site</a>
+
+                  <a
+                    href="https://github.com/dannyjive/shopping-cart-project"
+                    target="_blank"
+                    class="btn"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- **OTHER PROJECTS -->
+      <section id="other-projects">
+        <div>
           <h2 class="section-title">Other Projects</h2>
 
           <!-- **FILTER -->
           <div id="filter-menu">
             <ul>
+              <div class="filter-indicator"></div>
+
               <li>
                 <button class="filter-btn active" data-filter="all">
                   #all
                 </button>
               </li>
-
               <li>
-                <button class="filter-btn inactive" data-filter="wordpress">
+                <button class="filter-btn" data-filter="wordpress">
                   #wordpress
                 </button>
               </li>
-
               <li>
-                <button class="filter-btn inactive" data-filter="react">
-                  #react
-                </button>
+                <button class="filter-btn" data-filter="react">#react</button>
               </li>
               <li>
-                <button class="filter-btn inactive" data-filter="javascript">
+                <button class="filter-btn" data-filter="javascript">
                   #javascript
                 </button>
               </li>
               <li>
-                <button class="filter-btn inactive" data-filter="game">
-                  #game
-                </button>
+                <button class="filter-btn" data-filter="game">#game</button>
               </li>
               <li>
-                <button class="filter-btn inactive" data-filter="api">
-                  #api
-                </button>
+                <button class="filter-btn" data-filter="api">#api</button>
               </li>
               <li>
-                <button class="filter-btn inactive" data-filter="sass">
-                  #sass
-                </button>
+                <button class="filter-btn" data-filter="sass">#sass</button>
               </li>
               <li>
-                <button class="filter-btn inactive" data-filter="bootstrap">
+                <button class="filter-btn" data-filter="bootstrap">
                   #bootstrap
                 </button>
               </li>
             </ul>
           </div>
+        </div>
 
-          <!-- **PROJECT THUMBNAILS -->
-          <div class="project-grid-wrapper">
-            <div class="project-grid">
-              <div class="row push-intr-cards-down">
-                <!-- Thumbnail 1 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript api"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Weather App</h5>
-                      <img
-                        src="img/WeatherApp_Thumb.png"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/WeatherApp_Screenshot.png"
-                        data-title="Weather App"
-                        data-description="A simple weather application built with HTML, CSS, and JavaScript that fetches and displays weather data using an API. Designed and coded by Dan and Team Droplet. #html #css #javascript #api"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/joshuabear87/droplet-weather-app"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+        <!-- **PROJECT THUMBNAILS -->
+        <div class="project-grid-wrapper">
+          <div class="project-grid">
+            <div class="row push-intr-cards-down">
+              <!-- Thumbnail 1 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript api"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body card-color">
+                    <h5 class="card-title text-center">Weather App</h5>
+                    <img
+                      src="img/WeatherApp_Thumb.png"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/WeatherApp_Screenshot.png"
+                      data-title="Weather App"
+                      data-description="A simple weather application built with HTML, CSS, and JavaScript that fetches and displays weather data using an API. Designed and coded by Dan and Team Droplet. #html #css #javascript #api"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/joshuabear87/droplet-weather-app"}
                                 ]'
-                        alt="Weather App"
-                      />
-                    </div>
+                      alt="Weather App"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 2 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript bootstrap react redux"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Shopping Cart</h5>
-                      <img
-                        src="img/PokemonThumb.jpg"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/PokemonLg.jpg"
-                        data-title="Pokemon Shopping Cart"
-                        data-description="A fun shopping cart built with React, featuring Pokémon cards! This project includes React state management, props, redux and component composition. Coded and designed by Dan and Team Droplet.
+              <!-- Thumbnail 2 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript bootstrap react redux"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Shopping Cart</h5>
+                    <img
+                      src="img/PokemonThumb.jpg"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/PokemonLg.jpg"
+                      data-title="Pokemon Shopping Cart"
+                      data-description="A fun shopping cart built with React, featuring Pokémon cards! This project includes React state management, props, redux and component composition. Coded and designed by Dan and Team Droplet.
                         #html #css #javascript #react #redux"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/shopping-cart-project"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/shopping-cart-project"}, {"text":"Live Site", "url":"#"}
                                   ]'
-                        alt="Pokemon Shopping Cart"
-                      />
-                    </div>
+                      alt="Pokemon Shopping Cart"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 3 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript react api"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">GoT App</h5>
-                      <img
-                        src="img/GotThumb.jpg"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/GotImage.jpg"
-                        data-title="Game of Thrones App"
-                        data-description="A Game of Thrones explorer that allows user to look at the characters, and houses from the books. Includes a light and dark mode. This site was coded by Dan based on a design template. #html #css #javascript #react #api"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/GameOfThrones"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+              <!-- Thumbnail 3 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript react api"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">GoT App</h5>
+                    <img
+                      src="img/GotThumb.jpg"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/GotImage.jpg"
+                      data-title="Game of Thrones App"
+                      data-description="A Game of Thrones explorer that allows user to look at the characters, and houses from the books. Includes a light and dark mode. This site was coded by Dan based on a design template. #html #css #javascript #react #api"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/GameOfThrones"}
                                   ]'
-                        alt="Game of Thrones App"
-                      />
-                    </div>
+                      alt="Game of Thrones App"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 4 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript react game"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Tic-Tac-Toe Game</h5>
-                      <img
-                        src="img/TicTacToeThumb.jpg"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/TicTacToe.png"
-                        data-title="Tic-Tac-Toe Game"
-                        data-description="A Tic-Tac-Toe game built with React. This side was coded by Dan based on a design template. #html #css #javascript #react #game"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/React_TicTacToe_Proj"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+              <!-- Thumbnail 4 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript react game"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Tic-Tac-Toe Game</h5>
+                    <img
+                      src="img/TicTacToeThumb.jpg"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/TicTacToe.png"
+                      data-title="Tic-Tac-Toe Game"
+                      data-description="A Tic-Tac-Toe game built with React. This side was coded by Dan based on a design template. #html #css #javascript #react #game"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/React_TicTacToe_Proj"}
                                   ]'
-                        alt="Tic-Tac-Toe Game"
-                      />
-                    </div>
+                      alt="Tic-Tac-Toe Game"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 5 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript api"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">News Aggregator</h5>
-                      <img
-                        src="img/NewsAIP_Thumb.png"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/NewsAPI_Screenshot.png"
-                        data-title="News Aggregator"
-                        data-description="The News Aggregator that collects and displays news from multiple sources in one place. It provides a clean and user-friendly interface for browsing the latest headlines. This site was coded by Dan based on a design template. #html #css #javascript #react #api"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/newsapi_assign01/tree/59ff26a195456393bc1bd0cf2dc17ed85b2d9203"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+              <!-- Thumbnail 5 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript api"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">News Aggregator</h5>
+                    <img
+                      src="img/NewsAIP_Thumb.png"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/NewsAPI_Screenshot.png"
+                      data-title="News Aggregator"
+                      data-description="The News Aggregator that collects and displays news from multiple sources in one place. It provides a clean and user-friendly interface for browsing the latest headlines. This site was coded by Dan based on a design template. #html #css #javascript #react #api"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/newsapi_assign01/tree/59ff26a195456393bc1bd0cf2dc17ed85b2d9203"}
                                   ]'
-                        alt="News Aggregator"
-                      />
-                    </div>
+                      alt="News Aggregator"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 6 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css sass javascript react router"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Fave Movie App</h5>
-                      <img
-                        src="img/FaveMovies_Thumb.png"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/FavMovies_Screenshot.png"
-                        data-title="Fave Movie App"
-                        data-description="A simple React application that allows users to search for, save, and manage a list of their favorite movies. This site was coded by Dan based on a design template. #html #css #javascript #react #react-router #sass"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/FaveMoviesApp"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"}
+              <!-- Thumbnail 6 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css sass javascript react router"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Fave Movie App</h5>
+                    <img
+                      src="img/FaveMovies_Thumb.png"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/FavMovies_Screenshot.png"
+                      data-title="Fave Movie App"
+                      data-description="A simple React application that allows users to search for, save, and manage a list of their favorite movies. This site was coded by Dan based on a design template. #html #css #javascript #react #react-router #sass"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/FaveMoviesApp"}
                                   ]'
-                        alt="Fave Movie App"
-                      />
-                    </div>
+                      alt="Fave Movie App"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 7 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript react"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Invest Calculator</h5>
-                      <img
-                        src="img/investCalcScreenshot.jpg"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/InvestCalc_Screenshot.png"
-                        data-title="Investment Calculator"
-                        data-description="An investment calculator that calculates investment value, and interest based on user input of initial investment, annual investment, and expected return. This site was coded by Dan based on a design template. #html #css #javascript #react"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+              <!-- Thumbnail 7 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript react"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Invest Calculator</h5>
+                    <img
+                      src="img/investCalcScreenshot.jpg"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/InvestCalc_Screenshot.png"
+                      data-title="Investment Calculator"
+                      data-description="An investment calculator that calculates investment value, and interest based on user input of initial investment, annual investment, and expected return. This site was coded by Dan based on a design template. #html #css #javascript #react"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
                                 ]'
-                        alt="Investment Calculator"
-                      />
-                    </div>
+                      alt="Investment Calculator"
+                    />
                   </div>
                 </div>
+              </div>
 
-                <!-- Thumbnail 8 -->
-                <div
-                  class="col-md-3 mb-2 filter-item"
-                  data-category="html css javascript react redux router"
-                >
-                  <div class="card mt-4 fade-in">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">NuCamp Site</h5>
-                      <img
-                        src="img/NuCamp_Thumb.png"
-                        class="card-img-top open-modal"
-                        data-bs-toggle="modal"
-                        data-bs-target="#infoModal"
-                        data-img="img/NuCamp_Screenshot.png"
-                        data-title="NuCamp Site"
-                        data-description="This site is created with React, React Router, and Redux. It allows comments and has login validation. This site was coded by Dan based on a design template. #html #css #javascript #react react-router"
-                        data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/nucamp-react-practice"},
-                        {"text":"Live Site", "url":"https://github.com/dannyjive/React_Investment_Calculator/tree/main"} 
+              <!-- Thumbnail 8 -->
+              <div
+                class="col-md-3 mb-2 filter-item"
+                data-category="html css javascript react redux router"
+              >
+                <div class="card mt-4 fade-in">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">NuCamp Site</h5>
+                    <img
+                      src="img/NuCamp_Thumb.png"
+                      class="card-img-top open-modal"
+                      data-bs-toggle="modal"
+                      data-bs-target="#infoModal"
+                      data-img="img/NuCamp_Screenshot.png"
+                      data-title="NuCamp Site"
+                      data-description="This site is created with React, React Router, and Redux. It allows comments and has login validation. This site was coded by Dan based on a design template. #html #css #javascript #react react-router"
+                      data-links='[{"text":"GitHub", "url":"https://github.com/dannyjive/nucamp-react-practice"}
                                   ]'
-                        alt="NuCamp Site"
-                      />
-                    </div>
+                      alt="NuCamp Site"
+                    />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- **Bootstrap **Modal -->
-          <div
-            class="modal fade"
-            id="infoModal"
-            tabindex="-1"
-            aria-labelledby="infoModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="infoModalLabel">Project Title</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body text-center">
-                  <img src="" id="modalImage" class="img-fluid mb-3" alt="" />
-                  <p id="modalDescription"></p>
-                  <div id="modalLinks"></div>
                 </div>
               </div>
             </div>
@@ -409,86 +385,122 @@
         </div>
       </section>
 
-      <!-- **ABOUT -->
-      <section id="about">
-        <h2>About Dan Finley</h2>
-        <div class="about-wrapper">
-          <div class="card rounded-lg col-8 custom-color">
-            <div class="row g-0">
-              <!-- ABOUT IMG -->
-              <div class="col-md-4">
-                <img
-                  class="about-image img-fluid rounded-start"
-                  src="./img/DanHeadshot01.jpg"
-                  alt="Dan Finley Headshot"
-                />
-              </div>
-
-              <!-- ABOUT TEXT -->
-              <div class="col-md-8">
-                <div class="card-body text-start">
-                  <p>
-                    Daniel Finley (he/him) is a Thai-American developer and
-                    designer, born and raised in Wisconsin, educated in New York
-                    City and Los Angeles, and now based in Seattle. He loves
-                    telling stories as a motion designer, comics artist, and
-                    author. In his sordid past, he’s been known as a New York
-                    Times featured filmmaker, a published/award-winning writer,
-                    and a photographer inducted into Nikon’s Emerging
-                    Photographer Hall of Fame.
-                  </p>
-
-                  <p>
-                    On the Meyer-Briggs personality test, Dan is an INTJ-A. You
-                    can read more about what that means
-                    <a href="https://www.16personalities.com/intj-personality"
-                      >here</a
-                    >.
-                  </p>
-
-                  <div class="contact-info">
-                    <p>
-                      Contact:
-                      <a href="mailto:dannyjive@gmail.com"
-                        >dannyjive@gmail.com</a
-                      >
-                    </p>
-                    <p>
-                      Github:
-                      <a target="_blank" href="https://github.com/dannyjive"
-                        >GitHub Profile</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <!-- **Bootstrap **Modal -->
+      <div
+        class="modal fade"
+        id="infoModal"
+        tabindex="-1"
+        aria-labelledby="infoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="infoModalLabel">Project Title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
-            <div class="heatmap-wrapper">
-              <div class="row g-0 col-11">
-                <h6>GitHub Heatmap</h6>
-                <img
-                  src="https://ghchart.rshah.org/545b83/dannyjive"
-                  alt="My GitHub Heatmap"
-                />
-              </div>
+            <div class="modal-body text-center">
+              <img src="" id="modalImage" class="img-fluid mb-3" alt="" />
+              <p id="modalDescription"></p>
+              <div id="modalLinks"></div>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- **FOOTER -->
-      <footer>
-        <div class="footer-wrapper">
-          <p id="copyright"></p>
-        </div>
-      </footer>
+      </div>
     </div>
+
+    <!-- **ABOUT -->
+    <section id="about">
+      <h2>About Dan Finley</h2>
+      <div class="about-wrapper">
+        <div class="card rounded-lg col-8 custom-color">
+          <div class="row g-0">
+            <!-- ABOUT IMG -->
+            <div class="col-md-4">
+              <img
+                class="about-image img-fluid rounded-start"
+                src="./img/DanHeadshot01.jpg"
+                alt="Dan Finley Headshot"
+              />
+            </div>
+
+            <!-- ABOUT TEXT -->
+            <div class="col-md-8">
+              <div class="card-body text-start">
+                <p>
+                  Daniel Finley (he/him) is a Thai-American developer and
+                  designer, born and raised in Wisconsin, educated in New York
+                  City and Los Angeles, and now based in Seattle. He loves
+                  telling stories as a motion designer, comics artist, and
+                  author. In his sordid past, he’s been known as a New York
+                  Times featured filmmaker, a published/award-winning writer,
+                  and a photographer inducted into Nikon’s Emerging Photographer
+                  Hall of Fame.
+                </p>
+
+                <p>
+                  On the Meyer-Briggs personality test, Dan is an INTJ-A. You
+                  can read more about what that means
+                  <a href="https://www.16personalities.com/intj-personality"
+                    >here</a
+                  >.
+                </p>
+
+                <div class="contact-info">
+                  <p>
+                    Contact:
+                    <a href="mailto:dannyjive@gmail.com">dannyjive@gmail.com</a>
+                  </p>
+                  <p>
+                    Github:
+                    <a target="_blank" href="https://github.com/dannyjive"
+                      >GitHub Profile</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="heatmap-wrapper">
+            <div class="row g-0 col-11">
+              <h6>GitHub Heatmap</h6>
+              <div class="calendar">Loading contributions...</div>
+            </div>
+          </div>
+          <!-- <div class="heatmap-wrapper">
+            <div class="row g-0 col-11">
+              <h6>GitHub Heatmap</h6>
+              <img
+                src="https://ghchart.rshah.org/27a0a6/dannyjive"
+                alt="My GitHub Heatmap"
+              />
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- **FOOTER -->
+    <footer>
+      <div class="footer-wrapper">
+        <p id="copyright"></p>
+      </div>
+    </footer>
 
     <!-- **Bootstrap JS Bundle (includes Popper) -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
+    
+<!-- Github Heatmap -->
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
 
     <!-- Custom **JavaScript -->
     <script src="script.js"></script>

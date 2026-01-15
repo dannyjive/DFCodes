@@ -57,6 +57,98 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Nav dot highlight for active section
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navi-link");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            "active-nav",
+            link.getAttribute("href") === `#${entry.target.id}`
+          );
+        });
+      }
+    });
+  },
+  {
+    threshold: 0.6, // section is "active" when 60% visible
+  }
+);
+
+sections.forEach(section => observer.observe(section));
+
+// <!-- Background Pill Slider for Filter -->
+
+const buttons = document.querySelectorAll(".filter-btn");
+const indicator = document.querySelector(".filter-indicator");
+
+function moveIndicator(btn) {
+  const ul = btn.closest("ul");
+
+  const btnRect = btn.getBoundingClientRect();
+  const ulRect = ul.getBoundingClientRect();
+
+  const left = btnRect.left - ulRect.left - ul.clientLeft;
+  const width = btnRect.width;
+
+  indicator.style.left = `${left}px`;
+  indicator.style.width = `${width}px`;
+}
+
+
+// position indicator on load
+const activeBtn = document.querySelector(".filter-btn.active");
+moveIndicator(activeBtn);
+
+// move on click
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".filter-btn.active")?.classList.remove("active");
+    btn.classList.add("active");
+    moveIndicator(btn);
+  });
+});
+
+// <!-- GitHub Heatmap Fetch User -->
+
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Create a style tag and inject it into the head
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .calendar text, .calendar .month, .calendar .wday {
+      fill: white !important;
+      font-family: 'Courier Prime', monospace !important;
+    }
+    .calendar rect[data-level="0"] {
+      fill: #2d2d2d !important;
+    }
+    .calendar rect[data-level="1"] { fill: #c6e48b !important; }
+    .calendar rect[data-level="2"] { fill: #7bc96f !important; }
+    .calendar rect[data-level="3"] { fill: #239a3b !important; }
+    .calendar rect[data-level="4"] { fill: purple !important; }
+    .calendar svg { width: 100% !important; height: auto !important; }
+  `;
+  document.head.appendChild(style);
+
+  // 2. Initialize the Calendar
+  GitHubCalendar(".calendar", "dannyjive", {
+    responsive: true,
+    global_stats: false,
+    proxy(username) {
+      return fetch(`https://api.blogg.li/github/${username}`)
+        .then(res => res.text());
+    }
+  }).then(() => {
+    console.log("Heatmap loaded!");
+  });
+});
+
+
 // <!-- Current Year Script -->
 
 const year = new Date().getFullYear();

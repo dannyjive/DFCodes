@@ -23,7 +23,7 @@ body {
 
 p {
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   line-height: normal;
 }
 
@@ -35,7 +35,6 @@ p {
   left: 0;
   width: fit-content;
   z-index: 10;
-
 }
 
 .site-nav__inner {
@@ -44,19 +43,16 @@ p {
   padding-left: 40px;
   font-family: "Advent Pro", sans-serif;
   font-weight: 600;
-
 }
-nav{
+nav {
   width: fit-content;
 }
 nav ul {
   list-style: none;
   gap: 20px;
-
 }
 
-nav a {
-  color: #fff;
+.navi-link {
   text-decoration: none;
   font-size: 1em;
   transition: color 0.3s;
@@ -65,21 +61,33 @@ nav a {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-nav a::before {
+.navi-link::before {
   content: "";
-  width: 6px;
-  height: 6px;
-  background-color: currentColor;
+  width: 10px;
+  height: 10px;
+  background-color: white;
   border-radius: 50%;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover {
-  color: #64b5f6;
+.navi-link {
+  color: white;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navi-link.active-nav::before {
+  background-color: #24cac9;
+  font-weight: 600;
+}
+
+.navi-link:hover {
+  color: #24cac9;
 }
 
 /* --- HERO SECTION --- */
@@ -89,15 +97,13 @@ nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 180px;
-  margin-bottom: 220px;
+  min-height: 80vh;
 }
 .name {
   position: absolute;
   font-family: "Advent Pro";
   font-size: 2rem;
   margin-left: 348px;
-  top: -10px;
   font-weight: 600;
   z-index: 2;
   color: white;
@@ -149,7 +155,7 @@ nav a:hover {
 
 /* --- SECTION HEADERS --- */
 
-#project-highlights,
+#project-highlights-title,
 #other-projects,
 #technologies,
 #about {
@@ -277,8 +283,8 @@ a.btn {
   color: white;
 }
 
-a.btn:hover{
-  background-color: #5f6794;
+a.btn:hover {
+  background-color: #27a0a6;
   color: white;
 }
 
@@ -290,7 +296,8 @@ a.btn:focus-visible {
 /* --- Filter Menu --- */
 
 #filter-menu ul {
-  font-family: "Courier New", Courier, monospace;
+  position: relative;
+  font-family: "Courier Prime", Courier, monospace;
   display: flex;
   color: white;
   justify-content: center;
@@ -318,9 +325,19 @@ a.btn:focus-visible {
   flex-shrink: 0;
 }
 
-.active {
+.filter-indicator {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
   background-color: #27a0a6;
   border-radius: 20px;
+  transition: left 0.35s ease, width 0.35s ease;
+  z-index: 0;
+}
+
+.filter-btn {
+  position: relative;
+  z-index: 1;
   padding: 5px 15px;
 }
 
@@ -341,60 +358,162 @@ a.btn:focus-visible {
   max-width: 1000px;
 }
 
-.project-grid-wrapper{
+
+
+.card {
+  background-color: #ececec !important;
+  --bs-card-border-width: 0px !important;
+  --bs-card-border-color: transparent !important;
+  border: 0 !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+}
+
+.project-grid-wrapper {
   margin-bottom: 80px;
 }
 
-#modalDescription, #infoModalLabel{
+#modalDescription,
+#infoModalLabel {
   color: #2a4257;
 }
 
 /* --- ABOUT SECTION --- */
 
-.about-wrapper{
+.about-wrapper {
   display: flex;
   justify-content: center;
 }
 
-
-.about-image{
+.about-image {
   width: 400px;
   padding: 20px;
 }
 
-.custom-color{
-  background-color: #2A4257 !important;
+.custom-color {
+  background-color: #2a4257 !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 
 .contact-info p {
   font-weight: 600;
 }
 
-.card-body a{
+.card-body a {
   text-decoration: underline;
   color: white;
   font-weight: 100;
 }
 
-.contact-info a:hover{
+.contact-info a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.row h6{
+/* --- GitHub Heatmap --- */
+.row h6 {
   color: white;
+  font-size: 2em;
+  margin-top: 30px;
 }
 
-.heatmap-wrapper{
+.heatmap-wrapper {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
 }
+/* --- STYLING GITHUB HEATMAP COLORS --- */
 
-/* FOOTER */
+/* Color The Squares */
+.calendar td.ContributionCalendar-day[data-level="0"] {
+  background-color: #242424 !important;
+}
+.calendar td.ContributionCalendar-day[data-level="1"] {
+  background-color: #1b6f73 !important;
+}
+.calendar td.ContributionCalendar-day[data-level="2"] {
+  background-color: #25989e !important;
+}
+.calendar td.ContributionCalendar-day[data-level="3"] {
+  background-color: #30c0c8 !important;
+}
+.calendar td.ContributionCalendar-day[data-level="4"] {
+  background-color: #3df5ff !important;
+}
+
+/* Color the Less-More Chart */
+.ContributionCalendar-day[data-level="0"] {
+  background-color: #242424;
+}
+
+.ContributionCalendar-day[data-level="1"] {
+  background-color: #1b6f73;
+}
+.ContributionCalendar-day[data-level="2"] {
+  background-color: #25989e;
+}
+.ContributionCalendar-day[data-level="3"] {
+  background-color: #30c0c8;
+}
+.ContributionCalendar-day[data-level="4"] {
+  background-color: #3df5ff;
+}
+
+/* The Labels (Months and Days) */
+.calendar .ContributionCalendar-label,
+.calendar text,
+.calendar span {
+  color: white !important;
+  fill: white !important;
+  font-family: "Courier Prime", monospace !important;
+}
+
+/* Adding gaps to squares */
+.calendar table.ContributionCalendar-grid {
+  border-collapse: separate !important;
+
+  /* Adjust this number to make the gap larger or smaller */
+  border-spacing: 2px !important;
+}
+
+/* Ensure the squares don't shrink too much */
+.calendar td.ContributionCalendar-day {
+  width: 11px !important;
+  height: 11px !important;
+  min-width: 11px !important;
+}
+
+/* Hide Border Cuz Bootstrap is being difficult */
+.calendar,
+.border {
+  border: none !important;
+}
+
+/* Hides the accessibility skip link text */
+.position-relative a,
+.sr-only {
+  display: none !important;
+}
+
+.calendar span {
+  color: white !important;
+  fill: white !important;
+  font-family: "Courier Prime", monospace !important;
+  font-size: 0.6em;
+}
+div.px-md-5 {
+  display: flex;
+  justify-content: center;
+}
+
+div.float-right {
+  align-items: baseline;
+  margin-top: 8px;
+}
+
+/* --- FOOTER --- */
 
 footer {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   min-height: 100px;
   width: 100%;
