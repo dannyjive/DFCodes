@@ -14,7 +14,7 @@ body {
   font-family: "Courier Prime", serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   width: 100%;
   background: linear-gradient(
     to right,
@@ -30,39 +30,39 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
-  overflow: hidden; 
+  height: 100%;
+  overflow: hidden;
   z-index: -11;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
-
-.tier-one, .tier-two, .tier-three {
+.tier-one,
+.tier-two,
+.tier-three {
   position: absolute;
   left: 0;
-  width: 100vw; 
+  width: 100vw;
   background-repeat: no-repeat;
-  background-size: 100%; 
+  background-size: 100%;
   background-position: top center;
 }
 
 .tier-one {
   top: -70px;
-  height: 981px; 
+  height: 981px;
   background-image: url("/img/BgWave01.png");
 }
 
 .tier-two {
-  top: 170px; 
-  height: 1878px; 
+  top: 170px;
+  height: 1878px;
   background-image: url("/img/BigWave02.png");
 }
 
 .tier-three {
-  top: 1200px; 
-  height: 3403px; 
+  top: 1200px;
+  height: 3403px;
   background-image: url("/img/BigWave03.png");
- 
 }
 
 .page {
@@ -108,7 +108,7 @@ nav ul {
   transition: color 0.3s;
   position: relative;
   padding-left: 14px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 2px #121c26;
 }
 
 .navi-link::before {
@@ -121,7 +121,7 @@ nav ul {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 4px #121c26;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -159,6 +159,8 @@ nav ul {
   z-index: 2;
   color: white;
   max-width: 50%;
+     text-shadow: 1px 1px 0 #121c26, 2px 2px 0 #121c26, 3px 3px 0 #121c26,
+    4px 4px 0 #121c26, 5px 5px 0 #121c26;
 }
 
 .title-wrapper {
@@ -173,6 +175,8 @@ nav ul {
   font-family: "Advent Pro";
   font-weight: 600;
   color: white;
+   text-shadow: 1px 1px 0 #121c26, 2px 2px 0 #121c26, 3px 3px 0 #121c26,
+    4px 4px 0 #121c26, 5px 5px 0 #121c26;
 }
 
 .developer {
@@ -180,14 +184,17 @@ nav ul {
   font-family: "Courier Prime", Courier, monospace;
   color: white;
   font-weight: 400;
+
+  text-shadow: 1px 1px 0 #121c26, 2px 2px 0 #121c26, 3px 3px 0 #121c26,
+    4px 4px 0 #121c26, 5px 5px 0 #121c26;
 }
 
 /* The Slash / Divider */
 
 .slash-wrapper {
   position: absolute;
-  top: 17%;      /* move wrapper vertically */
-  left: 49%;     /* move wrapper horizontally */
+  top: 17%; /* move wrapper vertically */
+  left: 49%; /* move wrapper horizontally */
   z-index: -10;
 }
 
@@ -203,20 +210,15 @@ nav ul {
   z-index: -10;
   animation: float-dialed 6s ease-in-out infinite;
 }
- @keyframes float-dialed {
-
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-
-} 
-/* @keyframes float-dialed {
-  0%, 100% { 
-    transform: translate(10%, 10%); 
+@keyframes float-dialed {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  50% { 
-    transform: translate(-30%, -35%); 
+  50% {
+    transform: translateY(-10px);
   }
-} */
+}
 
 /* --- SECTION HEADERS --- */
 
