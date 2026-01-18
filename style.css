@@ -425,6 +425,8 @@ a.btn:focus-visible {
   max-width: 1000px;
 }
 
+
+
 .card {
   background-color: #ececec !important;
   --bs-card-border-width: 0px !important;
@@ -435,6 +437,13 @@ a.btn:focus-visible {
 
 .project-grid-wrapper {
   margin-bottom: 80px;
+}
+
+.modal-title{
+  width: 100%;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 600;
+  text-align: center;
 }
 
 #modalDescription,
@@ -473,106 +482,126 @@ a.btn:focus-visible {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* --- GitHub Heatmap --- */
+/* --- GitHub Heatmap Wrapper --- */
+.calendar-row h6{
+  color: white;
+  font-size: 1.5em;
+}
+
+.heatmap-wrapper {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-row {
+  width: 90%; /* Allow it to take full container width */
+  max-width: 900px; /* Adjust based on your preference */
+}
+
+.calendar {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Ensure it has a minimum height during load */
+  min-height: 120px; 
+  border: none;
+}
+
+/* Ensure the container isn't hiding overflow */
+.calendar-container {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+/* Descriptive Footer */
+/* Container for the "Less [boxes] More" text */
+.calendar-footer {
+  display: flex;
+  justify-content: flex-end; /* Aligns to the right like GitHub */
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #8b949e;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.legend-svg {
+  display: inline-block;
+  width: 70px; /* Adjusted to fit 5 squares + spacing */
+  height: 11px;
+}
+
+.legend-svg rect {
+  width: 11px;
+  height: 11px;
+  rx: 2;
+}
+
+/* Section title */
 .row h6 {
   color: white;
   font-size: 2em;
   margin-top: 30px;
 }
 
-.heatmap-wrapper {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 50px;
-}
-/* --- STYLING GITHUB HEATMAP COLORS --- */
-
-/* Color The Squares */
-.calendar td.ContributionCalendar-day[data-level="0"] {
-  background-color: #242424 !important;
-}
-.calendar td.ContributionCalendar-day[data-level="1"] {
-  background-color: #1b6f73 !important;
-}
-.calendar td.ContributionCalendar-day[data-level="2"] {
-  background-color: #25989e !important;
-}
-.calendar td.ContributionCalendar-day[data-level="3"] {
-  background-color: #30c0c8 !important;
-}
-.calendar td.ContributionCalendar-day[data-level="4"] {
-  background-color: #3df5ff !important;
+/* --- Heatmap SVG Styling --- */
+.calendar svg {
+  display: block;         /* removes inline alignment issues */
+  margin: 0 auto;         /* centers it horizontally */
+  max-width: 780px;       /* optional: your previous width */
+  height: auto;
 }
 
-/* Color the Less-More Chart */
-.ContributionCalendar-day[data-level="0"] {
-  background-color: #242424;
+.calendar rect {
+  width: 11px;
+  height: 11px;
+  rx: 2; /* rounded corners */
+  ry: 2;
+  fill: #242424; /* default background for level 0 */
+  transition: fill 0.3s;
 }
 
-.ContributionCalendar-day[data-level="1"] {
-  background-color: #1b6f73;
-}
-.ContributionCalendar-day[data-level="2"] {
-  background-color: #25989e;
-}
-.ContributionCalendar-day[data-level="3"] {
-  background-color: #30c0c8;
-}
-.ContributionCalendar-day[data-level="4"] {
-  background-color: #3df5ff;
+/* Color levels matching your previous theme */
+.calendar rect[data-level="0"] { fill: #242424; }
+.calendar rect[data-level="1"] { fill: #1b6f73; }
+.calendar rect[data-level="2"] { fill: #25989e; }
+.calendar rect[data-level="3"] { fill: #30c0c8; }
+.calendar rect[data-level="4"] { fill: #3df5ff; }
+
+/* Add spacing between squares using a little margin with CSS trick */
+.calendar rect + rect {
+
+  margin-left: 2px;  horizontal spacing
 }
 
-/* The Labels (Months and Days) */
-.calendar .ContributionCalendar-label,
+/* Optional: add vertical spacing by translating each row in JS */
+/* We'll handle that in script.js when appending rects */
+
+/* Tooltip text (on hover) */
+.calendar rect:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Label styling (optional if you add month/day labels later) */
 .calendar text,
-.calendar span {
-  color: white !important;
-  fill: white !important;
-  font-family: "Courier Prime", monospace !important;
-}
-
-/* Adding gaps to squares */
-.calendar table.ContributionCalendar-grid {
-  border-collapse: separate !important;
-
-  /* Adjust this number to make the gap larger or smaller */
-  border-spacing: 2px !important;
-}
-
-/* Ensure the squares don't shrink too much */
-.calendar td.ContributionCalendar-day {
-  width: 11px !important;
-  height: 11px !important;
-  min-width: 11px !important;
-}
-
-/* Hide Border Cuz Bootstrap is being difficult */
-.calendar,
-.border {
-  border: none !important;
-}
-
-/* Hides the accessibility skip link text */
-.position-relative a,
-.sr-only {
-  display: none !important;
-}
-
 .calendar span {
   color: white !important;
   fill: white !important;
   font-family: "Courier Prime", monospace !important;
   font-size: 0.6em;
 }
-div.px-md-5 {
-  display: flex;
-  justify-content: center;
-}
 
-div.float-right {
-  align-items: baseline;
-  margin-top: 8px;
-}
+/* These colors match your original theme */
+rect[data-level="0"] { fill: #242424; }
+rect[data-level="1"] { fill: #1b6f73; }
+rect[data-level="2"] { fill: #25989e; }
+rect[data-level="3"] { fill: #30c0c8; }
+rect[data-level="4"] { fill: #3df5ff; }
 
 /* --- FOOTER --- */
 
