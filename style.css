@@ -79,35 +79,40 @@ p {
 
 /* --- NAV --- */
 
+/* --- NAV --- */
 .site-nav {
   position: fixed;
-  top: 20px;
+  top: 50%;           /* Center it vertically */
+  transform: translateY(-50%); /* Fine-tune vertical center */
   left: 0;
   width: fit-content;
-  z-index: 10;
+  z-index: 100;       /* High z-index to stay above content */
 }
 
 .site-nav__inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-left: 40px;
+  /* Removed max-width and margin: auto to keep it snapped left */
+  padding-left: 20px; 
   font-family: "Advent Pro", sans-serif;
   font-weight: 600;
 }
-nav {
-  width: fit-content;
-}
+
 nav ul {
   list-style: none;
-  gap: 20px;
+  display: flex;
+  flex-direction: column; /* Stacks links vertically */
+  gap: 25px;             /* Space between vertical items */
+  padding: 0;
+  margin: 0;
 }
 
 .navi-link {
   text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s;
+  font-size: 1.1em;      /* Slightly larger for sidebar feel */
+  color: white;
+  transition: color 0.2s ease;
   position: relative;
-  padding-left: 14px;
+  padding-left: 20px;    /* Space for the dot */
+  display: block;        /* Ensures the link area is easy to click */
   text-shadow: 2px 2px 2px #121c26;
 }
 
@@ -122,18 +127,12 @@ nav ul {
   top: 50%;
   transform: translateY(-50%);
   box-shadow: 2px 2px 4px #121c26;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.navi-link {
-  color: white;
-  transition: color 0.2s ease;
-  position: relative;
+  transition: all 0.2s ease;
 }
 
 .navi-link.active-nav::before {
   background-color: #24cac9;
-  font-weight: 600;
+  transform: translateY(-50%) scale(1.2); /* Make active dot pop */
 }
 
 .navi-link:hover {
@@ -615,4 +614,118 @@ footer {
 
 .footer-wrapper {
   text-align: center;
+}
+
+
+/* --- MOBILE --- */
+
+@media (max-width: 992px) {
+  /* Move Nav to top and center it */
+  .site-nav {
+    position: sticky; /* Stays at top as you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: none;
+    background: rgba(8, 12, 17, 0.9); /* Add background for readability */
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul {
+    flex-direction: row; /* Stack horizontally */
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .navi-link {
+    font-size: 0.9em;
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .title-wrapper {
+    flex-direction: column; /* Stack Designer / Developer */
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .name {
+    position: relative; /* Remove absolute positioning */
+    margin-left: 0;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .designer, .developer {
+    font-size: 3rem; /* Scale down text */
+  }
+
+  .slash {
+    display: none; /* The huge slash usually breaks mobile layouts */
+  }
+}
+
+@media (max-width: 992px) {
+  .card-wrapper-right, 
+  .card-wrapper-left {
+    width: 100%;
+    margin: 0 0 40px 0;
+    left: 0;
+    height: auto; /* Let content determine height */
+    flex-direction: column;
+  }
+
+  .card-right, 
+  .card-left {
+    width: 100%;
+    border-radius: 12px; /* Uniform corners for mobile */
+    height: auto;
+  }
+
+  .card-right-inner, 
+  .card-left-inner {
+    background-image: linear-gradient(to bottom, rgba(42, 66, 87, 0.9), #2a4257);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-data-right, 
+  .card-data-left {
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    height: auto;
+  }
+
+  .project-description {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .calendar-row {
+    width: 100%;
+    overflow-x: auto; /* Allow the heatmap to scroll if it's too wide */
+  }
+  
+  /* Make heatmap labels smaller on mobile */
+  .calendar text {
+    font-size: 10px !important;
+  }
 }
