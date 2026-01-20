@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalLinks.innerHTML = links
         .map(
           (link) =>
-            `<a href="${link.url}" class="btn btn-primary m-1" target="_blank">${link.text}</a>`
+            `<a href="${link.url}" class="btn btn-primary m-1" target="_blank">${link.text}</a>`,
         )
         .join("");
     });
@@ -57,31 +57,64 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Nav dot highlight for active section
+// // Nav dot highlight for active section
 
-const sections = document.querySelectorAll("section");
+// const sections = document.querySelectorAll("section");
+// const navLinks = document.querySelectorAll(".navi-link");
+
+// const observer = new IntersectionObserver(
+//   entries => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         navLinks.forEach(link => {
+//           link.classList.toggle(
+//             "active-nav",
+//             link.getAttribute("href") === `#${entry.target.id}`
+//           );
+//         });
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.6, // section is "active" when 60% visible
+//   }
+// );
+
+// sections.forEach(section => observer.observe(section));
+
+// Nav dot highlight for active section
 const navLinks = document.querySelectorAll(".navi-link");
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.classList.toggle(
-            "active-nav",
-            link.getAttribute("href") === `#${entry.target.id}`
-          );
-        });
-      }
-    });
-  },
-  {
-    threshold: 0.6, // section is "active" when 60% visible
+const observerOptions = {
+  root: null,
+  // This creates a narrow 'detective' strip across the middle of the screen
+  rootMargin: "-40% 0px -40% 0px",
+  threshold: 0,
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute("id");
+
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          "active-nav",
+          link.getAttribute("href") === `#${id}`,
+        );
+      });
+    }
+  });
+}, observerOptions);
+
+// Track only the elements that have an ID matching your nav links
+navLinks.forEach((link) => {
+  const targetId = link.getAttribute("href").substring(1);
+  const targetSection = document.getElementById(targetId);
+  if (targetSection) {
+    observer.observe(targetSection);
   }
-);
-
-sections.forEach(section => observer.observe(section));
-
+});
 // <!-- Background Pill Slider for Filter -->
 
 const buttons = document.querySelectorAll(".filter-btn");
@@ -100,13 +133,12 @@ function moveIndicator(btn) {
   indicator.style.width = `${width}px`;
 }
 
-
 // position indicator on load
 const activeBtn = document.querySelector(".filter-btn.active");
 moveIndicator(activeBtn);
 
 // move on click
-buttons.forEach(btn => {
+buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelector(".filter-btn.active")?.classList.remove("active");
     btn.classList.add("active");
@@ -122,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const USERNAME = "dannyjive";
 
   if (!heatmapSvg) return;
-  
+
   if (!window.GITHUB_TOKEN) {
     heatmapSvg.innerHTML = `<text x="0" y="20" fill="white">Token Missing</text>`;
     return;
@@ -149,45 +181,59 @@ document.addEventListener("DOMContentLoaded", async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${window.GITHUB_TOKEN}`
+        Authorization: `Bearer ${window.GITHUB_TOKEN}`,
       },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query }),
     });
 
     const responseData = await res.json();
-    const calendarData = responseData.data.user.contributionsCollection.contributionCalendar;
+    const calendarData =
+      responseData.data.user.contributionsCollection.contributionCalendar;
     const weeks = calendarData.weeks;
-    const days = weeks.flatMap(week => week.contributionDays);
+    const days = weeks.flatMap((week) => week.contributionDays);
 
     const svgNS = "http://www.w3.org/2000/svg";
     const squareSize = 11;
     const spacing = 3;
     const monthHeaderHeight = 20; // Extra space for Jan, Feb, etc.
-    
+
     const totalWeeks = weeks.length;
     const viewWidth = totalWeeks * (squareSize + spacing);
-    const viewHeight = (7 * (squareSize + spacing)) + monthHeaderHeight;
-    
+    const viewHeight = 7 * (squareSize + spacing) + monthHeaderHeight;
+
     heatmapSvg.setAttribute("viewBox", `0 0 ${viewWidth} ${viewHeight}`);
-    heatmapSvg.innerHTML = ""; 
+    heatmapSvg.innerHTML = "";
 
     // --- Render Month Labels ---
     let currentMonth = -1;
     weeks.forEach((week, i) => {
       const firstDayInWeek = new Date(week.contributionDays[0].date);
       const month = firstDayInWeek.getMonth();
-      
+
       if (month !== currentMonth) {
         const monthLabel = document.createElementNS(svgNS, "text");
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        
+        const monthNames = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
         monthLabel.setAttribute("x", i * (squareSize + spacing));
         monthLabel.setAttribute("y", 12); // Position above the squares
         monthLabel.setAttribute("fill", "#8b949e");
         monthLabel.style.fontSize = "9px";
         monthLabel.style.fontFamily = "sans-serif";
         monthLabel.textContent = monthNames[month];
-        
+
         heatmapSvg.appendChild(monthLabel);
         currentMonth = month;
       }
@@ -201,7 +247,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       rect.setAttribute("x", col * (squareSize + spacing));
       // Shift squares down to make room for labels
-      rect.setAttribute("y", (row * (squareSize + spacing)) + monthHeaderHeight);
+      rect.setAttribute("y", row * (squareSize + spacing) + monthHeaderHeight);
       rect.setAttribute("width", squareSize);
       rect.setAttribute("height", squareSize);
       rect.setAttribute("rx", 2);
@@ -217,7 +263,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // --- Render Legend ---
     if (legendSvg) {
       legendSvg.innerHTML = "";
-      legendSvg.setAttribute("viewBox", `0 0 ${5 * (squareSize + spacing)} ${squareSize}`);
+      legendSvg.setAttribute(
+        "viewBox",
+        `0 0 ${5 * (squareSize + spacing)} ${squareSize}`,
+      );
       for (let i = 0; i < 5; i++) {
         const rect = document.createElementNS(svgNS, "rect");
         rect.setAttribute("x", i * (squareSize + spacing));
@@ -229,7 +278,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         legendSvg.appendChild(rect);
       }
     }
-
   } catch (err) {
     console.error(err);
     heatmapSvg.innerHTML = `<text x="0" y="20" fill="white">Error loading heatmap</text>`;
@@ -244,38 +292,8 @@ function getLevel(count) {
   return "4";
 }
 
-
-
-
-
 // <!-- Current Year Script -->
 
 const year = new Date().getFullYear();
-document.getElementById(
-  "copyright"
-).innerHTML = `This website was designed and coded by Dan Finley &copy; ${year}`;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById("copyright").innerHTML =
+  `This website was designed and coded by Dan Finley &copy; ${year}`;
