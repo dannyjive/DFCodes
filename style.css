@@ -651,7 +651,7 @@ footer {
    MEDIA QUERIES - MOBILE
    ======================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1100px) {
   /* Layout */
   .page {
     position: static;
@@ -726,6 +726,10 @@ footer {
     padding-left: 15px;
     font-size: 0.9em;
     pointer-events: auto;
+  }
+
+  section[id] {
+    scroll-margin-top: 100px;
   }
 
   /* Button */
