@@ -515,7 +515,14 @@ a.btn:focus-visible {
    GITHUB HEATMAP
    ======================================== */
 
-.calendar-row h6 {
+.heatmap-wrapper img {
+  max-width: 780px;
+  width: 100%;
+  filter: contrast(1.1) saturate(1.2);
+  padding: 0 0 40px 0;
+}
+
+/* .calendar-row h6 {
   margin-top: 30px;
   font-size: 1.5em;
   color: white;
@@ -612,7 +619,7 @@ a.btn:focus-visible {
   width: 11px;
   height: 11px;
   rx: 2;
-}
+} */
 
 /* Duplicate rect styling for specificity */
 rect[data-level="0"] {
@@ -782,9 +789,11 @@ footer {
     font-size: 1.5rem;
   }
 
-  .name, .designer, .developer {
+  .name,
+  .designer,
+  .developer {
     position: relative !important;
-    z-index: 999 !important; 
+    z-index: 999 !important;
     pointer-events: none;
   }
 
@@ -920,8 +929,6 @@ footer {
   .calendar text {
     font-size: 10px !important;
   }
-
-
 
   /* Footer */
   .footer-wrapper {
