@@ -72,19 +72,19 @@ p {
 .tier-one {
   top: -70px;
   height: 981px;
-  background-image: url("/img/BgWave01.png");
+  background-image: url("../img/BgWave01.png");
 }
 
 .tier-two {
   top: 170px;
   height: 1878px;
-  background-image: url("/img/BigWave02.png");
+  background-image: url("../img/BigWave02.png");
 }
 
 .tier-three {
   top: 1200px;
   height: 3403px;
-  background-image: url("/img/BigWave03.png");
+  background-image: url("../img/BigWave03.png");
 }
 
 /* ========================================
@@ -346,14 +346,14 @@ nav ul {
 }
 
 #card-one {
-  background-image: url("./img/DFPhotoIMG.png");
+  background-image: url("../img/DFPhotoIMG.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
 }
 
 #card-two {
-  background-image: url("./img/Pokemon.png");
+  background-image: url("../img/Pokemon.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -679,13 +679,13 @@ footer {
   .tier-two {
     top: 470px;
     height: 1878px;
-    background-image: url("/img/BigWave02.png");
+    background-image: url("../img/BigWave02.png");
   }
 
   .tier-three {
     top: 6200px;
     height: 3403px;
-    background-image: url("/img/BigWave03.png");
+    background-image: url("../img/BigWave03.png");
   }
 
   /* Navigation */
